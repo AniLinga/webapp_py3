@@ -1,7 +1,7 @@
 import asyncio, logging
 import aiomysql
 
-def log(sql, arg=()):
+def log(sql, args=()):
     logging.info('SQL:%s' % sql)
 
 # 定义一个全局的连接池
@@ -117,7 +117,7 @@ class ModelMetaclass(type):
         tableName = attrs.get('__table__', None) or name
         logging.info('found model: %s(table:%s)' % (name, tableName))
         # 获取所有的Field和主键名
-        mappings = dict[]
+        mappings = dict()
         fields = []
         primaryKey = None
         for k, v in attrs.items():
